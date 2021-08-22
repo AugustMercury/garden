@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Hidden Garden</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="/js/script.js"></script>
+</head>
+<body>
+    <div class="countdown">
+        <div class="time-section">
+            <span class="count" id="days"></span>
+            <span class="units"></span>
+        </div>
+        <div class="time-section">
+            <span class="count" id="hours"></span>
+            <span class="units"></span>
+        </div>
+        <div class="time-section">
+            <span class="count" id="minutes"></span>
+            <span class="units"></span>
+        </div>
+        <div class="time-section">
+            <span class="count" id="seconds"></span>
+            <span class="units"></span>
+        </div>
+    </div>
+    <div id="loader"></div>
+    <div id="content">
+        <h1></h1>
+
+    <script type="text/javascript">
+    
+    var loader;
+    function loadNow(opacity) {
+        if(opacity <= 0) {
+            displayContent();
+        }
+        else {
+            loader.style.opacity = opacity;
+            window.setTimeout(function() {
+                loadNow(opacity - 0.05)
+            }, 100);
+        }
+    }
+
+    function displayContent() {
+        loader.style.display = "none";
+        document.getElementById("content").style.display = "block";
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        loader = document.getElementById("loader");
+        loadNow(1);
+    })
+    
+    </script>
+</body>
+</html>
